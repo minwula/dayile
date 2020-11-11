@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '学行天下游学平台',
+  title: '学行天下',
 
   /**
    * @type {boolean} true | false

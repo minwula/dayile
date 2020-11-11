@@ -72,7 +72,7 @@ export const constantRoutes = [
     redirect: '/check/sigupcheck',
     name: 'check',
     meta: {
-      title: '信息审核',
+      title: '食品种类',
       icon: 'form'
     },
     children: [
@@ -80,13 +80,13 @@ export const constantRoutes = [
         path: 'signupcheck',
         name: 'signupCheck',
         component: () => import('@/views/check/signUpCheck/index'),
-        meta: { title: '报名信息审核', icon: 'form' }
+        meta: { title: '食品分类', icon: 'form' }
       },
       {
         path: 'infocheck',
         name: 'infoCheck',
         component: () => import('@/views/check/infoCheck/index'),
-        meta: { title: '咨询信息审核', icon: 'form' }
+        meta: { title: '分类介绍', icon: 'form' }
       }
     ]
   },

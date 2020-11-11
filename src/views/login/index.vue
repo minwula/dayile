@@ -10,7 +10,7 @@
         label-position="left"
       >
         <div class="title-container">
-          <h3 class="title">行学天下游学平台</h3>
+          <h3 class="title">登录</h3>
         </div>
 
         <el-form-item prop="username">
