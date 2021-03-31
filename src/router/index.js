@@ -55,16 +55,16 @@ export const constantRoutes = [
     }]
   },
 
-  {
-    path: '/projectmanage',
-    component: Layout,
-    children: [{
-      path: '',
-      name: 'projectManage',
-      component: () => import('@/views/projectManage/index'),
-      meta: { title: '游学项目管理', icon: 'el-icon-s-help' }
-    }]
-  },
+  // {
+  //   path: '/projectmanage',
+  //   component: Layout,
+  //   children: [{
+  //     path: '',
+  //     name: 'projectManage',
+  //     component: () => import('@/views/projectManage/index'),
+  //     meta: { title: '游学项目管理', icon: 'el-icon-s-help' }
+  //   }]
+  // },
 
   {
     path: '/check',
@@ -80,14 +80,14 @@ export const constantRoutes = [
         path: 'signupcheck',
         name: 'signupCheck',
         component: () => import('@/views/check/signUpCheck/index'),
-        meta: { title: '食品分类', icon: 'form' }
+        meta: { title: '食品分类及介绍', icon: 'form' }
       },
-      {
-        path: 'infocheck',
-        name: 'infoCheck',
-        component: () => import('@/views/check/infoCheck/index'),
-        meta: { title: '分类介绍', icon: 'form' }
-      }
+      // {
+      //   path: 'infocheck',
+      //   name: 'infoCheck',
+      //   component: () => import('@/views/check/infoCheck/index'),
+      //   meta: { title: '分类介绍', icon: 'form' }
+      // }
     ]
   },
 
@@ -98,7 +98,7 @@ export const constantRoutes = [
       path: '',
       name: 'moduleManage',
       component: () => import('@/views/moduleManage/index'),
-      meta: { title: '模块管理', icon: 'el-icon-s-help' }
+      meta: { title: '食品搭配推荐', icon: 'el-icon-s-help' }
     }]
   },
 
@@ -120,7 +120,7 @@ export const constantRoutes = [
       path: '',
       name: 'authManage',
       component: () => import('@/views/authManage/index'),
-      meta: { title: '权限管理', icon: 'el-icon-s-help' }
+      meta: { title: '问题咨询审核', icon: 'el-icon-s-help' }
     }]
   },
   // {

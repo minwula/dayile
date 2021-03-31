@@ -2,38 +2,60 @@
   <div>
     <el-tabs v-model="activeName" @tab-click="moduleSwitch">
       <!-- name属性对应着 栏目ID，通过它查找 内容 -->
-      <el-tab-pane label="轮播图" name="9441">
+      <el-tab-pane label="搭配" name="9441">
         <!-- 轮播图与精彩瞬间、学生风采同属一个组件 -->
-        <tableWithImg
+        <!-- <tableWithImg
           :projects="projects9441"
           :categoryId="9441"
           @showClicked="shownHandler($event)"
           @deleteClicked="deleteHandler($event)"
           @updateClicked="updateHandler($event)"
-        ></tableWithImg>
+        ></tableWithImg> -->
+        <el-table
+    :data="tableData"
+    stripe
+    style="width: 100%">
+    <el-table-column
+      prop="date"
+      label="编号"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="搭配"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="优劣">
+    </el-table-column>
+  </el-table>
+  <el-pagination
+  background
+  layout="prev, pager, next"
+  :total="100">
+</el-pagination>
       </el-tab-pane>
-      <el-tab-pane label="游学项目" name="9411">
-        <simpleTable
-          :projects="projects9411"
-          :categoryId="9411"
-          :labelArr="[
-            { label: '项目名称', prop: 'name' },
-            { label: '项目状态', isDeep: true },
-            { label: '显示状态', prop: 'status' },
-          ]"
-          :isFixedLabel="true"
-          :status="['正常', '禁用']"
-          @updateClicked="updateHandler($event)"
-        ></simpleTable>
-      </el-tab-pane>
-      <el-tab-pane label="精彩瞬间" name="9432">
-        <tableWithImg
-          :projects="projects9432"
-          :categoryId="9432"
-          @showClicked="shownHandler($event)"
-          @deleteClicked="deleteHandler($event)"
-          @updateClicked="updateHandler($event)"
-        ></tableWithImg>
+      <el-tab-pane label="功效结果" name="9411">
+        <el-table
+    :data="tableDatas"
+    stripe
+    style="width: 100%">
+    <el-table-column
+      prop="date"
+      label="编号"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="优劣"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="功效与劣势">
+    </el-table-column>
+  </el-table>
       </el-tab-pane>
       <el-tab-pane label="常见问题" name="9440">
         <!-- 常见问题与游学项目同属一个组件 -->
@@ -41,7 +63,7 @@
           :projects="projects9440"
           :categoryId="9440"
           :labelArr="[
-            { label: '问题标题', prop: 'name' },
+            { label: '姓名', prop: 'name' },
             { label: '回答内容', prop: 'description' },
             { label: '状态', prop: 'status' },
           ]"
@@ -50,20 +72,18 @@
           @updateClicked="updateHandler($event)"
         ></simpleTable>
       </el-tab-pane>
-      <el-tab-pane label="学生风采" name="9414">
-        <tableWithImg
-          :projects="projects9414"
-          :categoryId="9414"
+      <el-tab-pane label="更多" name="9425">
+        <!-- <richText
+          :projects="projects9425"
+          @submitClicked="submitHandler($event)"
+        ></richText> -->
+                <tableWithImg
+          :projects="projects9441"
+          :categoryId="9441"
           @showClicked="shownHandler($event)"
           @deleteClicked="deleteHandler($event)"
           @updateClicked="updateHandler($event)"
         ></tableWithImg>
-      </el-tab-pane>
-      <el-tab-pane label="关于我们" name="9425">
-        <richText
-          :projects="projects9425"
-          @submitClicked="submitHandler($event)"
-        ></richText>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -80,6 +100,88 @@ export default {
   data() {
     return {
       activeName: "9441",
+      tableData: [{
+          date: '01',
+          name: '苦瓜与猪肝',
+          address: '优'
+        }, {
+          date: '02',
+          name: '猪肚与豆芽',
+          address: '优'
+        }, {
+          date: '03',
+          name: '生姜与羊肉',
+          address: '优'
+        }, {
+          date: '04',
+          name: '鸡蛋与韭菜',
+          address: '优'
+        }, {
+          date: '05',
+          name: '啤酒和海味',
+          address: '劣'
+        }, {
+          date: '06',
+          name: '白酒和胡萝卜',
+          address: '劣'
+        }, {
+          date: '07',
+          name: '香蕉与乳酸饮料',
+          address: '劣'
+        }, {
+          date: '08',
+          name: '生姜与牛肉',
+          address: '优'
+        }, {
+          date: '09',
+          name: '苹果与茶叶、洋葱',
+          address: '优'
+        }, {
+          date: '10',
+          name: '海鲜与水果',
+          address: '劣'
+        }],
+      tableDatas: [{
+          date: '01',
+          name: '优',
+          address: '可为人体提供丰富的营养成分，具有清热解毒、补肝明目的功效，经常食用有利于防治癌症。'
+        }, {
+          date: '02',
+          name: '优',
+          address: '常吃可洁白皮肤及增强免疫功能，还可抗癌。 '
+        }, {
+          date: '03',
+          name: '优',
+          address: '可治腹痛、胃寒。'
+        }, {
+          date: '04',
+          name: '优',
+          address: '补肾、行气止痛'
+        }, {
+          date: '05',
+          name: '劣',
+          address: '引发痛风症'
+        }, {
+          date: '06',
+          name: '劣',
+          address: '肝脏易中毒'
+        }, {
+          date: '07',
+          name: '劣',
+          address: '产生强致癌物'
+        }, {
+          date: '08',
+          name: '优',
+          address: '可治疗伤寒腹痛'
+        }, {
+          date: '09',
+          name: '优',
+          address: '具有保护心脏的功效，减少心脏病的发病率'
+        }, {
+          date: '10',
+          name: '劣',
+          address: '影响人体对蛋白质的吸收，海鲜中的钙还会与水果中的鞣酸相结合，形成难溶的钙，会对胃肠道产生刺激，甚至引起腹痛、恶心、呕吐等症状'
+        }]
     };
   },
   computed: {

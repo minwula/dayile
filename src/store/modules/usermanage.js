@@ -4,7 +4,8 @@ export default{
     namespaced:true,
     state:{
         usermanage:[],
-        total:0
+        total:0,
+        user: []
     },
     getters:{
         userNameList:function(state){
@@ -18,19 +19,22 @@ export default{
         },
         SET_TOTAL(state,total){
             state.total=total
+        },
+        SET_USER(state,user){
+            state.user=user
         }
     },
     actions:{
         findAll({commit}){
             request.get('/customer/findAll').then((res)=>{
-            commit('SET_USERMANAGE',res.data)
+            commit('SET_USER',res.data)
         })
         },
         //分页查询
         queryProduct({ commit }, queryForm) {
             request({
             method: 'POST',
-            url: '/product/query',
+            url: '/customer/query',
             data: querystring.stringify(queryForm)
             }).then((res) => {
             commit('SET_USERMANAGE', res.data.list)
@@ -41,20 +45,22 @@ export default{
         saveOrUpdate({dispatch},data) {
             request({
             method: 'POST',
-            url: '/product/saveOrUpdate',
-            data: querystring.stringify({
-                id:data.id,
-                name:data.name,
-                description:data.description,
-                price:data.price,
-                status:data.status,
-                photo:data.photo,
-                categoryId:data.categoryId
-            })
+            url: '/customer/saveOrUpdate',
+            data: querystring.stringify(data)
             }).then((res) => {
                 dispatch("queryProduct",{page:0,pageSize:6})
-                console.log(res.message)
+                // console.log(res.message)
             })
         },
+        //删除
+        DeleteById({dispatch},data){
+            request({
+                method: 'GET',
+                url: '/customer/deleteById?id='+data
+                }).then((res) => {
+                    dispatch("queryProduct",{page:0,pageSize:6})
+                    console.log(res.message)
+                })
+        }
     }
 }

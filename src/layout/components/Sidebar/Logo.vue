@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      title: '学行天下游学平台',
+      title: '食品分类和搭配',
       logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
     }
   }

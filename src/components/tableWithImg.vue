@@ -4,7 +4,7 @@
     <div class="table-card-wrapper">
       <div class="table-card" v-for="item in projects" :key="item.id">
         <el-card shadow="hover" style="width: 100%; height: 100%">
-          <el-image :src="item.photo" class="image" @click="handlePictureCardPreview(item.photo)" >
+          <el-image :src="paresImg(item.photo)" class="image" @click="handlePictureCardPreview(item.photo)" >
             <div slot="error" class="image-slot">
               <i class="el-icon-picture-outline"></i>
             </div>
@@ -175,7 +175,7 @@ export default {
       this.form.status = '正常'
       this.form.categoryId = this.categoryId
       // 由于图片服务器不可用，暂由固定url写入
-      this.form.photo = 'https://media.contentapi.ea.com/content/dam/apex-legends/images/2019/01/apex-media-team-br-16x9.jpg.adapt.crop16x9.1455w.jpg'
+      this.form.photo = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1131113585,1986769071&fm=26&gp=0.jpg'
       // OK
       this.$emit('updateClicked',this.form)
       this.form = {}
@@ -187,6 +187,9 @@ export default {
     handlePictureCardPreview(file) {
       file.url?this.dialogImageUrl = file.url:this.dialogImageUrl = file
       this.dialogVisible = true;
+    },
+    paresImg(img){
+      return JSON.parse(img)
     }
   },
 };

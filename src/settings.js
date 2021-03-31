@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '学行天下',
+  title: '食品分类搭配',
 
   /**
    * @type {boolean} true | false
